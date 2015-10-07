@@ -6,6 +6,8 @@ public class ModifyGravity : MonoBehaviour {
     public float gravity;
     public Rigidbody rb;
 
+    public float setGravity = 2.0f;
+
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
@@ -16,13 +18,17 @@ public class ModifyGravity : MonoBehaviour {
     {
         rb.AddForce(Vector3.up * -gravity);
 
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("GravityDown"))
         {
-            gravity += 0.1f;
+            gravity = setGravity;
         }
-        if (Input.GetButton("Fire2"))
+        if (Input.GetButton("GravityOff"))
         {
-            gravity -= 0.1f;
+            gravity = 0.0f;
+        }
+        if (Input.GetButton("GravityUp"))
+        {
+            gravity = -setGravity;
         }
     }
 }
