@@ -11,10 +11,13 @@ public class ModifyColor : MonoBehaviour {
 
     public bool moving = false;
 
+    public TrailRenderer trailRend;
+
     // Use this for initialization
     void Start () {
-	
-	}
+        trailRend = gameObject.GetComponent<TrailRenderer>();
+        trailRend.material.color = GetComponent<Renderer>().material.color;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -30,7 +33,8 @@ public class ModifyColor : MonoBehaviour {
             {
                 currentTime += Time.deltaTime;
                 GetComponent<Renderer>().material.color = Color32.Lerp(currentColor, newColor, currentTime / timeToMove);
-            }
+                trailRend.material.color = GetComponent<Renderer>().material.color;
+}
             else
             {
                 currentTime = 0f;
