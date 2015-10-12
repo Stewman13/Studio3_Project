@@ -10,6 +10,10 @@ public class PressurePlate : MonoBehaviour {
     public bool active;
 
     public float setGravity = 0.5f;
+    public int timesToPlay = 1;
+
+    public AudioSource tick;
+    public AudioSource tock;
 
     // Use this for initialization
     void Start () {
@@ -42,10 +46,20 @@ public class PressurePlate : MonoBehaviour {
         if (dist < 0.35)
         {
             active = true;
+            if(timesToPlay == 1)
+            {
+                tick.Play();
+                timesToPlay = 0;
+            }
         }
         else
         {
             active = false;
+            if(timesToPlay == 0)
+            {
+                tock.Play();
+                timesToPlay = 1;
+            }
         }
     }
 }

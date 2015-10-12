@@ -78,13 +78,13 @@ public class RainToggle : MonoBehaviour {
             }
         }
 
-        if (Input.GetButtonDown("PlayLightning") && Lightinging == false)
+        if (Input.GetButtonDown("PlayLightning") && Lightinging == false && isRaining == true)
         {
             Lightinging = true;
             LightningSound.Play();
         }
 
-        if (isRaining == true && Lightinging == true)
+        if (Lightinging == true)
         {
             if (currentLightningTime <= LightningReset)
             {
