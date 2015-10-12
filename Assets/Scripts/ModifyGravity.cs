@@ -19,6 +19,10 @@ public class ModifyGravity : MonoBehaviour {
     public bool flipping = false;
     public bool noGrav = false;
 
+    public AudioSource grav1;
+    public AudioSource grav2;
+    public AudioSource grav3;
+
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
@@ -62,6 +66,7 @@ public class ModifyGravity : MonoBehaviour {
             if (flipping == false && gravityOn == false)
             {
                 gravity = setGravity;
+                grav1.Play();
                 flipping = true;
                 gravityOn = true;
             }
@@ -75,6 +80,7 @@ public class ModifyGravity : MonoBehaviour {
         if (Input.GetButton("GravityOff"))
         {
             gravity = 0.0f;
+            grav3.Play();
             noGrav = true;
         }
 
@@ -83,6 +89,7 @@ public class ModifyGravity : MonoBehaviour {
             if (flipping == false && gravityOn == true)
             {
                 gravity = -setGravity;
+                grav2.Play();
                 gravityOn = false;
                 flipping = true;
             }

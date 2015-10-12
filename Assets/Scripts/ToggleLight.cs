@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ToggleLight : MonoBehaviour {
     public bool lightOn = false;
-
+    public AudioSource click;
 	// Use this for initialization
 	void Start () {
 	
@@ -20,10 +20,12 @@ public class ToggleLight : MonoBehaviour {
             if (lightOn == true)
             {
                 GetComponent<Light>().enabled = true;
+                click.Play();
             }
             if (lightOn == false)
             {
                 GetComponent<Light>().enabled = false;
+                click.Play();
             }
         }
     }
