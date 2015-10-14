@@ -15,6 +15,13 @@ public class PressurePlate : MonoBehaviour {
     public AudioSource tick;
     public AudioSource tock;
 
+    public GameObject LightBulb;
+    public Light lightI;
+
+    public bool spawner = false;
+    public Transform spawnPoint;
+    public GameObject cube;
+
     // Use this for initialization
     void Start () {
         rb = plate.GetComponent<Rigidbody>();
@@ -50,6 +57,12 @@ public class PressurePlate : MonoBehaviour {
             {
                 tick.Play();
                 timesToPlay = 0;
+                LightBulb.GetComponent<Renderer>().material.color = new Color32(0,255,0,60);
+                lightI.color = Color.green;
+                if(spawner == true)
+                {
+                    Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
+                }
             }
         }
         else
@@ -59,6 +72,8 @@ public class PressurePlate : MonoBehaviour {
             {
                 tock.Play();
                 timesToPlay = 1;
+                LightBulb.GetComponent<Renderer>().material.color = new Color32(255, 0, 0, 60);
+                lightI.color = Color.red;
             }
         }
     }

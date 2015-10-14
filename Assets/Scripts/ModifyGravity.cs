@@ -52,7 +52,7 @@ public class ModifyGravity : MonoBehaviour {
             if (currentTime <= timeToMove)
             {
                 currentTime += Time.deltaTime;
-                cameraMain.transform.rotation = Quaternion.Lerp(to.rotation, from.rotation, currentTime / timeToMove);
+                cameraMain.transform.rotation = Quaternion.Lerp(new Quaternion(0, 0, 1, 0), new Quaternion(0, 0, 0, 1), currentTime / timeToMove);
             }
             else
             {
