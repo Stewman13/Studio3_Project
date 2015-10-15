@@ -19,22 +19,27 @@ public class ModifyWind : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        rb.AddForce(Vector3.right * gravity);
-
         if (Input.GetButton("WindRight"))
         {
             gravity = setWind;
-            wind1.Play();
-        }
-        if (Input.GetButton("WindOff"))
-        {
-            gravity = 0.0f;
-            wind3.Play();
+			rb.AddForce(Vector3.right * gravity);
         }
         if (Input.GetButton("WindLeft"))
         {
             gravity = -setWind;
-            wind2.Play();
+			rb.AddForce(Vector3.right * gravity);
         }
+		if (Input.GetButtonDown("WindLeft"))
+		{
+			wind3.Play();
+		}
+		if (Input.GetButtonDown("WindRight"))
+		{
+			wind1.Play();
+		}
+		else
+		{
+			gravity = 0.0f;	
+		}
     }
 }

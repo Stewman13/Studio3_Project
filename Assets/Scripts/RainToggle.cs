@@ -23,6 +23,8 @@ public class RainToggle : MonoBehaviour {
 
     public bool isRaining = false;
 
+	public Light mainLight;
+
     // Use this for initialization
     void Start () {
         AlphaOn = new Color32(128,128,128,77);
@@ -82,6 +84,7 @@ public class RainToggle : MonoBehaviour {
         {
             Lightinging = true;
             LightningSound.Play();
+			StartCoroutine(Wait(1.0f));
         }
 
         if (Lightinging == true)
@@ -97,4 +100,26 @@ public class RainToggle : MonoBehaviour {
             }
         }
     }
+
+	IEnumerator Wait(float waitTime) 
+	{
+		waitTime = 0.1f;
+		yield return new WaitForSeconds(waitTime);
+		mainLight.intensity = 3;
+		waitTime = 0.05f;
+		yield return new WaitForSeconds(waitTime);
+		mainLight.intensity = 1;
+		waitTime = 0.1f;
+		yield return new WaitForSeconds(waitTime);
+		mainLight.intensity = 4;
+		waitTime = 0.15f;
+		yield return new WaitForSeconds(waitTime);
+		mainLight.intensity = 1;
+		waitTime = 0.06f;
+		yield return new WaitForSeconds(waitTime);
+		mainLight.intensity = 2;
+		waitTime = 0.01f;
+		yield return new WaitForSeconds(waitTime);
+		mainLight.intensity = 1;
+	}
 }

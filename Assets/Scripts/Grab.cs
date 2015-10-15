@@ -20,21 +20,26 @@ public class Grab : MonoBehaviour {
         if(cube != null)
         {
             dist = Vector3.Distance(cube.transform.position, transform.position);
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Grab"))
             {
 
-                if(dist < 1.2 && grabbed == false)
+                if(dist < 1.5 && grabbed == false)
                 {
                     grabbed = true;
                     cube.transform.parent = this.transform;
-                    cube.GetComponent<Rigidbody>().isKinematic = true;
+//                    cube.GetComponent<Rigidbody>().isKinematic = true;
+					gameObject.AddComponent<FixedJoint>();
+					gameObject.GetComponent<FixedJoint>().connectedBody = cube.GetComponent<Rigidbody>();
+					cube.GetComponent<FalseGravity>().gravity = 0;
                 }
                 else
                 {
                     cube.transform.parent = null;   
                     if(grabbed == true)
                     {
-                        cube.GetComponent<Rigidbody>().isKinematic = false;
+                       // cube.GetComponent<Rigidbody>().isKinematic = false;
+						Destroy (gameObject.GetComponent<FixedJoint>());
+						cube.GetComponent<FalseGravity>().gravity = 2;
                     }
                     grabbed = false;
                 }

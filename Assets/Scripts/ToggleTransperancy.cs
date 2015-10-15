@@ -21,11 +21,12 @@ public class ToggleTransperancy : MonoBehaviour {
             if (onoff == true)
             {
                 GetComponent<Renderer>().material.color = new Color(color.r, color.g, color.b, 0);
+				gameObject.layer = 8;
             }
             else
             {
                 GetComponent<Renderer>().material.color = new Color(color.r, color.g, color.b, 1);
-                
+				gameObject.layer = 0;
             }
         }
     }
