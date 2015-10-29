@@ -12,13 +12,25 @@ public class ModifyWind : MonoBehaviour {
 
     public float setWind = 0.5f;
 
+	public bool flip = false;
+
+	public float standardWindNum = 0.5f;
+
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
+
     }
 	
 	// Update is called once per frame
 	void Update () {
+		if (flip == true) {
+			setWind = -standardWindNum;
+		} else {
+			setWind = standardWindNum;
+		}
+
+
         if (Input.GetButton("WindRight"))
         {
             gravity = setWind;
