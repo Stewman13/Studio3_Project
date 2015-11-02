@@ -18,6 +18,8 @@ public class PressurePlate : MonoBehaviour {
     public GameObject LightBulb;
     public Light lightI;
 
+	public bool powerDown = false;
+	public bool Powered = true;
     public bool spawner = false;
     public Transform spawnPoint;
     public GameObject cube;
@@ -30,6 +32,18 @@ public class PressurePlate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Powered == false && powerDown == true) 
+		{
+			LightBulb.GetComponent<Renderer>().material.color = new Color32(0,0,0,60);
+			lightI.color = Color.black;
+			powerDown = false;
+		}
+		if (Powered == true && powerDown == false) 
+		{
+			LightBulb.GetComponent<Renderer>().material.color = new Color32(255,0,0,60);
+			lightI.color = Color.red;
+			powerDown = true;
+		}
         dist = Vector3.Distance(plate.transform.position, transform.position);
 
         if(dist < 1)
@@ -50,7 +64,7 @@ public class PressurePlate : MonoBehaviour {
             rb.AddForce(Vector3.up * -gravity * 6);
         }
 
-        if (dist < 0.35)
+        if (dist < 0.35 && Powered == true)
         {
             active = true;
             if(timesToPlay == 1)

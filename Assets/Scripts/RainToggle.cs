@@ -25,6 +25,9 @@ public class RainToggle : MonoBehaviour {
 
 	public Light mainLight;
 
+	//this is the rising water
+	public GameObject Water;
+
     // Use this for initialization
     void Start () {
         AlphaOn = new Color32(128,128,128,77);
@@ -72,6 +75,7 @@ public class RainToggle : MonoBehaviour {
                 LightningSound.volume = Mathf.Lerp(0, 0.4f, currentTime / timeToMove);
                 GetComponent<Renderer>().material.SetColor("_TintColor", color);
                 isRaining = true;
+				Water.SendMessage("On");
             }
             else
             {
