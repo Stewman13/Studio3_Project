@@ -18,6 +18,7 @@ public class PressurePlate : MonoBehaviour {
     public GameObject LightBulb;
     public Light lightI;
 
+	public bool hasTimer = false;
 	public bool powerDown = false;
 	public bool Powered = true;
     public bool spawner = false;
@@ -72,11 +73,20 @@ public class PressurePlate : MonoBehaviour {
                 tick.Play();
                 timesToPlay = 0;
                 LightBulb.GetComponent<Renderer>().material.color = new Color32(0,255,0,60);
-                lightI.color = Color.green;
-                if(spawner == true)
-                {
-                    Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
-                }
+				if(hasTimer == true){
+	                lightI.color = Color.green;
+	                if(spawner == true)
+	                {
+	                    Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
+	                }
+				}
+				else if(hasTimer == false){
+					lightI.color = Color.green;
+					if(spawner == true)
+					{
+						Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
+					}
+				}
             }
         }
         else

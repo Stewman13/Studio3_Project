@@ -33,7 +33,7 @@ public class WaterRising : MonoBehaviour {
 	}
 
 	void OnTriggerStay(Collider Col) {
-		if (Col.gameObject.tag == "electricTrigger" && myPos.y > 8.698f) {
+		if (Col.gameObject.tag == "electricTrigger" && myPos.y > 8.665f) {
 			powerOn = true;
 			poweredObject.GetComponent<PressurePlate>().Powered = true;
 		}

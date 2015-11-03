@@ -12,11 +12,11 @@ public class ModifySize : MonoBehaviour {
 	void Update () {
         if (Input.GetButtonDown ("IncreaseSize") && transform.localScale.x < 2.0f) {
 			transform.localScale += new Vector3 (0.25f, 0.25f, 0.25f);   
-			this.GetComponent<ModifyGravity> ().gravMultiplier += 0.5f;
+			this.GetComponent<ModifyGravity> ().gravMultiplier += 1.25f;
 		}
         if (Input.GetButtonDown ("DecreaseSize") && transform.localScale.x > 1.0f) {
 			transform.localScale -= new Vector3 (0.25f, 0.25f, 0.25f);
-			this.GetComponent<ModifyGravity> ().gravMultiplier -= 0.5f;
+			this.GetComponent<ModifyGravity> ().gravMultiplier -= 1.25f;
 		}
     }
 }
