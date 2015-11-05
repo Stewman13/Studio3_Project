@@ -6,6 +6,7 @@ public class ModifyGravity : MonoBehaviour {
     public float gravity;
     public Rigidbody rb;
     public GameObject cameraMain;
+	public GameObject gravDisplay;
 
     public float setGravity = 2.0f;
 	public float gravMultiplier = 0.0f;
@@ -68,38 +69,40 @@ public class ModifyGravity : MonoBehaviour {
 					gravity = setGravity;
 					this.GetComponent<ModifyWind> ().flip = false;
 					grav2.Play ();
-					gravityOn = true;
 					flipping = true;
+					gravDisplay.SendMessage("gravUpDown");
 				}
 				else if (gravNorm == true) {
 					gravNorm = !gravNorm;
 					gravity = -setGravity;
 					this.GetComponent<ModifyWind> ().flip = true;
 					grav2.Play ();
-					gravityOn = true;
 					flipping = true;
+					gravDisplay.SendMessage("gravUpDown");
 				}
 			}
 		}
 
 		//adds grav down
-		if (Input.GetButton ("GravityDown")) {
-			if (flipping == false && gravityOn == false) {
-				if (gravNorm == false) {
-					gravity = -setGravity;
+		if (Input.GetButtonDown ("GravityDown")) {
+			if(gravityOn == false){
+				if (flipping == false && gravityOn == false) {
+					if (gravNorm == false) {
+						gravity = -setGravity;
+					}
+					if (gravNorm == true) {
+						gravity = setGravity;
+					}
+					grav1.Play ();
+					gravityOn = !gravityOn;
+					gravDisplay.SendMessage("gravOnOff");
 				}
-				if (gravNorm == true) {
-					gravity = setGravity;
-				}
-				grav1.Play ();
-				gravityOn = true;
 			}
-		}
-
-		//turns off gravity
-		if (Input.GetButton ("GravityOff")) {
-			grav3.Play ();
-			gravityOn = false;
+			else if(gravityOn == true){
+				grav3.Play ();
+				gravityOn = !gravityOn;
+				gravDisplay.SendMessage("gravOnOff");
+			}
 		}
 	}
 }
