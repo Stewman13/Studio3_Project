@@ -42,11 +42,11 @@ public class RainToggle : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("StartRain") && fading == false)
-        {
-            onoff = !onoff;
-            fading = true;
-        }
+//        if (Input.GetButtonDown("StartRain") && fading == false)
+//        {
+//            onoff = !onoff;
+//            fading = true;
+//        }
 
         if (onoff == true && fading == true)
         {
@@ -125,5 +125,13 @@ public class RainToggle : MonoBehaviour {
 		waitTime = 0.01f;
 		yield return new WaitForSeconds(waitTime);
 		mainLight.intensity = 1;
+	}
+
+	public void rain(){
+		if (fading == false) {
+			print ("rain");
+			onoff = !onoff;
+			fading = true;
+		}
 	}
 }

@@ -25,6 +25,13 @@ public class PressurePlate : MonoBehaviour {
     public Transform spawnPoint;
     public GameObject cube;
 
+	public string message;
+	public string upMessage;
+	public GameObject receiver;
+
+	public bool continuous = false;
+	public bool hasUpMessage = false;
+
     // Use this for initialization
     void Start () {
         rb = plate.GetComponent<Rigidbody>();
@@ -71,10 +78,15 @@ public class PressurePlate : MonoBehaviour {
             if(timesToPlay == 1)
             {
                 tick.Play();
-                timesToPlay = 0;
+				if(continuous == false){
+                	timesToPlay = 0;
+				}
                 LightBulb.GetComponent<Renderer>().material.color = new Color32(0,255,0,60);
 				if(hasTimer == true){
 	                lightI.color = Color.green;
+					if(receiver != null){
+						receiver.SendMessage(message);
+					}
 	                if(spawner == true)
 	                {
 	                    Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
@@ -82,6 +94,9 @@ public class PressurePlate : MonoBehaviour {
 				}
 				else if(hasTimer == false){
 					lightI.color = Color.green;
+					if(receiver != null){
+						receiver.SendMessage(message);
+					}
 					if(spawner == true)
 					{
 						Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
@@ -94,6 +109,9 @@ public class PressurePlate : MonoBehaviour {
             active = false;
             if(timesToPlay == 0)
             {
+				if(receiver != null && hasUpMessage == true){
+					receiver.SendMessage(message);
+				}
                 tock.Play();
                 timesToPlay = 1;
                 LightBulb.GetComponent<Renderer>().material.color = new Color32(255, 0, 0, 60);

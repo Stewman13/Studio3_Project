@@ -15,19 +15,20 @@ public class ToggleTransperancy : MonoBehaviour {
 	void Update () {
         color = GetComponent<Renderer>().material.color;
 
-        if (Input.GetButtonDown("GoClear"))
+
+        if (onoff == true)
         {
-            onoff = !onoff;
-            if (onoff == true)
-            {
                 GetComponent<Renderer>().material.color = new Color(color.r, color.g, color.b, 0);
 				gameObject.layer = 8;
-            }
-            else
-            {
-                GetComponent<Renderer>().material.color = new Color(color.r, color.g, color.b, 1);
-				gameObject.layer = 0;
-            }
+        }
+        else
+        {
+            GetComponent<Renderer>().material.color = new Color(color.r, color.g, color.b, 1);
+			gameObject.layer = 0;
         }
     }
+
+	public void invis(){
+		onoff = !onoff;
+	}
 }
