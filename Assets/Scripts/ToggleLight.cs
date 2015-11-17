@@ -13,20 +13,21 @@ public class ToggleLight : MonoBehaviour {
     void Update()
     {
 
-        if (Input.GetButtonDown("LightOnOff"))
-        {
-            lightOn = !lightOn;
-
-            if (lightOn == true)
-            {
-                GetComponent<Light>().enabled = true;
-                click.Play();
-            }
-            if (lightOn == false)
-            {
-                GetComponent<Light>().enabled = false;
-                click.Play();
-            }
-        }
+    
     }
+
+	void LightOnOff(){
+		lightOn = !lightOn;
+
+		if (lightOn == true)
+		{
+			GetComponent<Light>().enabled = true;
+			click.Play();
+		}
+		if (lightOn == false)
+		{
+			GetComponent<Light>().enabled = false;
+			click.Play();
+		}
+	}
 }

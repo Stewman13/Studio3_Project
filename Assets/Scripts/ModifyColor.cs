@@ -26,12 +26,6 @@ public class ModifyColor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("ChangeColor") && moving == false)
-        {
-            newColor = new Color32((byte)Random.Range(0, 255), (byte)Random.Range(0, 255), (byte)Random.Range(0, 255), 255);
-            currentColor = GetComponent<Renderer>().material.color;
-            moving = true;
-        }
         if (moving == true)
         {
             if (currentTime <= timeToMove)
@@ -50,4 +44,12 @@ public class ModifyColor : MonoBehaviour {
         //  GetComponent<Renderer>().material.color = Color(Random.Range(0.0, 1.0), Random.Range(0.0, 1.0), Random.Range(0.0, 1.0));
         // Random.Range(0, 255), Random.Range(0, 255), Random.Range(0, 255), 1
     }
+
+	void OnTriggerEnter(Collider other){
+		if (other.gameObject.tag == "colourChanger" && moving == false) {
+			newColor = new Color32((byte)Random.Range(0, 255), (byte)Random.Range(0, 255), (byte)Random.Range(0, 255), 255);
+			currentColor = GetComponent<Renderer>().material.color;
+			moving = true;
+		}
+	}
 }
