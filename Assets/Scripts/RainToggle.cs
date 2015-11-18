@@ -37,6 +37,7 @@ public class RainToggle : MonoBehaviour {
         audio = GetComponent<AudioSource>();
         audio.Play();
         audio.volume = 0;
+		GetComponent<Renderer>().material.SetColor("_TintColor", color);
     }
 
     // Update is called once per frame
