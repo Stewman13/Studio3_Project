@@ -39,7 +39,7 @@ public class Grab : MonoBehaviour {
                     {
                        // cube.GetComponent<Rigidbody>().isKinematic = false;
 						Destroy (gameObject.GetComponent<FixedJoint>());
-						cube.GetComponent<FalseGravity>().gravity = 2;
+						cube.GetComponent<FalseGravity>().gravity = cube.GetComponent<FalseGravity>().setGrav;
                     }
                     grabbed = false;
                 }
