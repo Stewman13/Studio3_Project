@@ -3,7 +3,7 @@ using System.Collections;
 
 public class rotate : MonoBehaviour {
 
-	public int speed = 30; 
+	public int speed = 300; 
 	public GameObject windForce;
 
 	// Use this for initialization
@@ -17,12 +17,12 @@ public class rotate : MonoBehaviour {
 	}
 
 	public void speedUp(){
-		speed += 270;
+		speed -= 600;
 		windForce.SendMessage ("on");
 	}
 
 	public void speedDown(){
-		speed -= 270;
+		speed += 600;
 		windForce.SendMessage ("off");
 	}
 }

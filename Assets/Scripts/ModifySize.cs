@@ -16,7 +16,7 @@ public class ModifySize : MonoBehaviour {
 	public GameObject bottom;
 	public bool changeSize;
 	public bool inFeild = false;
-
+	public bool powerOn = false;
 	public float dist;
 
 	// Use this for initialization
@@ -30,35 +30,36 @@ public class ModifySize : MonoBehaviour {
     }
 
 	void OnTriggerStay(Collider col){
-		if (col.gameObject == sizer) {
-			dist = Vector3.Distance (small.transform.position, transform.position);
-			inFeild = true;
-			if (startBottom == true && toGrow == true) {
-				changeSize = true;
-			}
-			if (startTop == true && toGrow == false) {
-				changeSize = true;
-			}
-			if(changeSize == true){
-				this.GetComponent<ModifyGravity> ().gravMultiplier = dist;
-				transform.localScale = new Vector3 (dist / 2, dist / 2, dist / 2);
+		if (powerOn == true) {
+			if (col.gameObject == sizer) {
+				dist = Vector3.Distance (small.transform.position, transform.position);
+				inFeild = true;
+				if (startBottom == true && toGrow == true) {
+					changeSize = true;
+				}
+				if (startTop == true && toGrow == false) {
+					changeSize = true;
+				}
+				if (changeSize == true) {
+					this.GetComponent<ModifyGravity> ().gravMultiplier = dist;
+					transform.localScale = new Vector3 (dist / 2, dist / 2, dist / 2);
 				
-				if (transform.localScale.x < minSize) {
-					transform.localScale = new Vector3 (minSize, minSize, minSize);
-					this.GetComponent<ModifyGravity> ().gravMultiplier = 0;
-					toGrow = true;
+					if (transform.localScale.x < minSize) {
+						transform.localScale = new Vector3 (minSize, minSize, minSize);
+						this.GetComponent<ModifyGravity> ().gravMultiplier = 0;
+						toGrow = true;
+					}
+					if (transform.localScale.x > maxSize) {
+						transform.localScale = new Vector3 (maxSize, maxSize, maxSize);
+						toGrow = false;
+					}
+					if (this.GetComponent<ModifyGravity> ().gravMultiplier > maxMultiplier) {
+						this.GetComponent<ModifyGravity> ().gravMultiplier = maxMultiplier;
+					}
 				}
-				if (transform.localScale.x > maxSize) {
-					transform.localScale = new Vector3 (maxSize, maxSize, maxSize);
-					toGrow = false;
-				}
-				if (this.GetComponent<ModifyGravity> ().gravMultiplier > maxMultiplier) {
-					this.GetComponent<ModifyGravity> ().gravMultiplier = maxMultiplier;
-				}
+			} else {
+				inFeild = false;
 			}
-		}
-		else {
-			inFeild = false;
 		}
 	}
 
@@ -73,5 +74,9 @@ public class ModifySize : MonoBehaviour {
 			startTop = false;
 			startBottom = true;
 		}
+	}
+
+	void on(){
+		powerOn = true;
 	}
 }

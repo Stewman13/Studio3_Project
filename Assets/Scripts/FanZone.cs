@@ -7,6 +7,11 @@ public class FanZone : MonoBehaviour {
 	public int windForce = 5;
 	public bool windOn = false;
 
+	public int max = -5;
+	public int min = 5;
+
+	public GameObject cube;
+
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
@@ -18,13 +23,23 @@ public class FanZone : MonoBehaviour {
 	}
 
 	void OnTriggerStay(Collider other) {
-		if (other.gameObject.tag == "Player") {
-			player.GetComponent<Rigidbody>().AddForce(Vector3.right * -windForce);
+		if (other.gameObject == player) {
+			player.GetComponent<Rigidbody>().AddForce(this.transform.up * -windForce);
 			if(windOn == false){
-				windForce = 1;
+				windForce = max;
 			}
 			if(windOn == true){
-				windForce = 5;
+				windForce = min;
+			}
+		}
+		if (other.gameObject.tag == "Cube") {
+			cube = other.gameObject;
+			cube.GetComponent<Rigidbody>().AddForce(this.transform.up * -windForce);
+			if(windOn == false){
+				windForce = max;
+			}
+			if(windOn == true){
+				windForce = min;
 			}
 		}
 	}
