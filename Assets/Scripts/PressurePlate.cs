@@ -110,7 +110,7 @@ public class PressurePlate : MonoBehaviour {
             if(timesToPlay == 0)
             {
 				if(receiver != null && hasUpMessage == true){
-					receiver.SendMessage(message);
+					receiver.SendMessage(upMessage);
 				}
                 tock.Play();
                 timesToPlay = 1;
