@@ -25,6 +25,8 @@ public class RainToggle : MonoBehaviour {
 
 	public Light mainLight;
 
+	public GameObject Player;
+
 	//this is the rising water
 	public GameObject Water;
 
@@ -135,6 +137,7 @@ public class RainToggle : MonoBehaviour {
 			Lightinging = true;
 			LightningSound.Play();
 			StartCoroutine(Wait(1.0f));
+			Player.SendMessage ("sizeOn");
 		}
 	}
 }

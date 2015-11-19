@@ -19,6 +19,9 @@ public class ModifySize : MonoBehaviour {
 	public bool powerOn = false;
 	public float dist;
 
+	public GameObject LightBulb;
+	public Light lightI;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -76,7 +79,9 @@ public class ModifySize : MonoBehaviour {
 		}
 	}
 
-	void on(){
+	void sizeOn(){
 		powerOn = true;
+		LightBulb.GetComponent<Renderer>().material.color = new Color32(0,255,0,60);
+		lightI.color = Color.green;
 	}
 }
