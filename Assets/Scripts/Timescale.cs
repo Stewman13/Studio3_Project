@@ -9,6 +9,7 @@ public class Timescale : MonoBehaviour {
 	public float MaxTimescale = 1.0f;
 	public float MinTimescale = 0.5f;
 	public float HeartRatetoTimeScale = 0.0f;
+	public bool Paused = false;
 
 	// Use this for initialization
 	void Start () {
@@ -18,18 +19,20 @@ public class Timescale : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Time.timeScale = timeScale;
-		//give a 5 beat leeway
-		if (CurrentHeartRate >= (StartHeartRate + 5.0f)) {
-			HeartRatetoTimeScale = ((CurrentHeartRate - (StartHeartRate + 5.0f))/100);
-			timeScale = (1.0f - HeartRatetoTimeScale);
-			if(timeScale <= 0.5f){
-				timeScale = 0.5f;
-				print("Breathing Test");
+		if (Paused == false) {
+			Time.timeScale = timeScale;
+			//give a 5 beat leeway
+			if (CurrentHeartRate >= (StartHeartRate + 5.0f)) {
+				HeartRatetoTimeScale = ((CurrentHeartRate - (StartHeartRate + 5.0f)) / 100);
+				timeScale = (1.0f - HeartRatetoTimeScale);
+				if (timeScale <= 0.5f) {
+					timeScale = 0.5f;
+					print ("Breathing Test");
+				}
 			}
-		}
-		if (CurrentHeartRate < (StartHeartRate + 5.0f)) {
-			timeScale = 1.0f;
+			if (CurrentHeartRate < (StartHeartRate + 5.0f)) {
+				timeScale = 1.0f;
+			}
 		}
 	}
 }
