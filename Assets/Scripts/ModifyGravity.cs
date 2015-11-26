@@ -25,14 +25,24 @@ public class ModifyGravity : MonoBehaviour {
     public AudioSource grav2;
     public AudioSource grav3;
 
+	public bool TabletBuild = false;
+
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
+
+		if (TabletBuild) {
+			gravityOn = false;
+			setGravity = 4.0f;
+		}
     }
 
     // Update is called once per frame
 	void Update()
 	{
+		if (Timescale.Paused)
+			return;
+
 		if (gravityOn == true && gravNorm == true) {
 			rb.AddForce (Vector3.up * (-gravity + -gravMultiplier));
 		}
@@ -60,48 +70,84 @@ public class ModifyGravity : MonoBehaviour {
 			}
 		}
 
-
-		//flips gravity
-		if (Input.GetButton ("GravityUp")) {
-			if (flipping == false) {
-				if (gravNorm == false) {
-					gravNorm = !gravNorm;
-					gravity = setGravity;
-					this.GetComponent<ModifyWind> ().flip = false;
-					grav2.Play ();
-					flipping = true;
-					gravDisplay.SendMessage("gravUpDown");
+		//PC Controls
+		if (TabletBuild == false) {
+			//flips gravity
+			if (Input.GetButton ("GravityUp")) {
+				if (flipping == false) {
+					if (gravNorm == false) {
+						gravNorm = !gravNorm;
+						gravity = setGravity;
+						this.GetComponent<ModifyWind> ().flip = false;
+						grav2.Play ();
+						flipping = true;
+						gravDisplay.SendMessage ("gravUpDown");
+					} else if (gravNorm == true) {
+						gravNorm = !gravNorm;
+						gravity = -setGravity;
+						this.GetComponent<ModifyWind> ().flip = true;
+						grav2.Play ();
+						flipping = true;
+						gravDisplay.SendMessage ("gravUpDown");
+					}
 				}
-				else if (gravNorm == true) {
-					gravNorm = !gravNorm;
-					gravity = -setGravity;
-					this.GetComponent<ModifyWind> ().flip = true;
-					grav2.Play ();
-					flipping = true;
-					gravDisplay.SendMessage("gravUpDown");
+			}
+
+			//adds grav down
+			if (Input.GetButtonDown ("GravityDown")) {
+				if (gravityOn == false) {
+					if (flipping == false && gravityOn == false) {
+						if (gravNorm == false) {
+							gravity = -setGravity;
+						}
+						if (gravNorm == true) {
+							gravity = setGravity;
+						}
+						grav1.Play ();
+						gravityOn = !gravityOn;
+						gravDisplay.SendMessage ("gravOnOff");
+					}
+				} else if (gravityOn == true) {
+					grav3.Play ();
+					gravityOn = !gravityOn;
+					gravDisplay.SendMessage ("gravOnOff");
 				}
 			}
 		}
 
-		//adds grav down
-		if (Input.GetButtonDown ("GravityDown")) {
-			if(gravityOn == false){
-				if (flipping == false && gravityOn == false) {
-					if (gravNorm == false) {
-						gravity = -setGravity;
-					}
-					if (gravNorm == true) {
-						gravity = setGravity;
-					}
-					grav1.Play ();
-					gravityOn = !gravityOn;
-					gravDisplay.SendMessage("gravOnOff");
+		//Tablet Controls
+		if (TabletBuild == true) {
+			//flips gravity when tablet is flipped
+			if (Input.GetButtonDown ("GravitySwap")) {
+				if (gravNorm == false) {
+					gravNorm = !gravNorm;
+					gravity = setGravity;
+					grav2.Play ();
+					gravDisplay.SendMessage ("gravUpDown");
+				} else if (gravNorm == true) {
+					gravNorm = !gravNorm;
+					gravity = -setGravity;
+					grav2.Play ();
+					gravDisplay.SendMessage ("gravUpDown");
 				}
 			}
-			else if(gravityOn == true){
-				grav3.Play ();
+			
+			//adds grav down when button/finger held down
+			if (Input.GetButtonDown ("GravityOn")) {
+				if (gravNorm == false) {
+					gravity = -setGravity;
+				}
+				if (gravNorm == true) {
+					gravity = setGravity;
+				}
+				grav1.Play ();
 				gravityOn = !gravityOn;
-				gravDisplay.SendMessage("gravOnOff");
+				gravDisplay.SendMessage ("gravOnOff");
+			}
+
+			if (Input.GetButtonUp ("GravityOn")) {
+				gravityOn = !gravityOn;
+				gravDisplay.SendMessage ("gravOnOff");
 			}
 		}
 	}

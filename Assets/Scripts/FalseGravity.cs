@@ -15,6 +15,9 @@ public class FalseGravity : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Timescale.Paused)
+			return;
+
         rb.AddForce(Vector3.up * -gravity);
     }
 }

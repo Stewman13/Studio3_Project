@@ -3,6 +3,7 @@ using System.Collections;
 
 public class GravityDisplayCube : MonoBehaviour {
 		
+	public GameObject Player;
 	public GameObject Display;
 	public Vector3 cubePos;
 	public Vector3 displayPos;
@@ -20,7 +21,9 @@ public class GravityDisplayCube : MonoBehaviour {
 		
 	// Use this for initialization
 	void Start () {
-
+		if (Player.GetComponent<ModifyGravity> ().TabletBuild == true) {
+			gravityIsOn = false;
+		}
 	}
 		
 	// Update is called once per frame

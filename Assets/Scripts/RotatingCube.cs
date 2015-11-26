@@ -19,7 +19,7 @@ public class RotatingCube : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		Camera.main.GetComponent<Timescale>().Paused = true;
+		Timescale.Paused = true;
 		Time.timeScale = 0.0F;
 		PauseCanvas.SetActive(true);
 		EndGameCanvas.SetActive(true);

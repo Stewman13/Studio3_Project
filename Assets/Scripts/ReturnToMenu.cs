@@ -16,7 +16,7 @@ public class ReturnToMenu : MonoBehaviour {
 		if (Input.GetKey (KeyCode.Escape)) {
 
 			//open Pause
-			gameObject.GetComponent<Timescale>().Paused = true;
+			Timescale.Paused = true;
 			Time.timeScale = 0.0F;
 			PauseCanvas.SetActive(true);
 		}
@@ -24,7 +24,7 @@ public class ReturnToMenu : MonoBehaviour {
 
 	void Unpause(){
 		Time.timeScale = 1.0F;
-		gameObject.GetComponent<Timescale>().Paused = false;
+		Timescale.Paused = false;
 		PauseCanvas.SetActive(false);
 		EndGameCanvas.SetActive(false);
 	}

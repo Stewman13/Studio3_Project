@@ -9,7 +9,7 @@ public class Timescale : MonoBehaviour {
 	public float MaxTimescale = 1.0f;
 	public float MinTimescale = 0.5f;
 	public float HeartRatetoTimeScale = 0.0f;
-	public bool Paused = false;
+	static public bool Paused = false;
 
 	// Use this for initialization
 	void Start () {

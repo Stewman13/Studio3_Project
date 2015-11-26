@@ -30,6 +30,8 @@ public class ModifyWind : MonoBehaviour {
 			setWind = standardWindNum;
 		}
 
+		if (Timescale.Paused)
+			return;
 
         if (Input.GetButton("WindRight"))
         {
