@@ -26,6 +26,7 @@ public class ModifyGravity : MonoBehaviour {
     public AudioSource grav2;
     public AudioSource grav3;
 	public int messages = 0;
+	public int messagesTwo = 0;
 
 	public bool TabletBuild = false;
 
@@ -39,6 +40,7 @@ public class ModifyGravity : MonoBehaviour {
 			rb.angularDrag = 1;
 			rb.drag = 1;
 		}
+		Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
 
     // Update is called once per frame
@@ -122,16 +124,28 @@ public class ModifyGravity : MonoBehaviour {
 		//Tablet Controls
 		if (TabletBuild == true) {
 			//flips gravity when tablet is flipped
-			if (Input.deviceOrientation == DeviceOrientation.LandscapeLeft) {
-					gravity = setGravity;
+			if ((Input.deviceOrientation == DeviceOrientation.LandscapeRight)) {
+//				if(Screen.orientation != ScreenOrientation.LandscapeRight){
+//					Screen.orientation = ScreenOrientation.LandscapeRight;
+//				}
+					gravNorm = false;
 					grav2.Play ();
-					gravDisplay.SendMessage ("gravUpDown");
+				if(messagesTwo == 1){
+					messagesTwo--;
+					gravDisplay.SendMessage ("gravUp");
+				}
 			}
 
-			if (Input.deviceOrientation == DeviceOrientation.LandscapeRight) {
-					gravity = -setGravity;
-					grav2.Play ();
-					gravDisplay.SendMessage ("gravUpDown");
+			if ((Input.deviceOrientation == DeviceOrientation.LandscapeLeft)) {
+//				if(Screen.orientation != ScreenOrientation.LandscapeRight){
+//					Screen.orientation = ScreenOrientation.LandscapeRight;
+//				}
+				gravNorm = true;
+				grav2.Play ();
+				if(messagesTwo == 0){
+					messagesTwo++;
+					gravDisplay.SendMessage ("gravDown");
+				}
 			}
 			
 			//adds grav down when button/finger held down

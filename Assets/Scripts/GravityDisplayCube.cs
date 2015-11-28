@@ -53,7 +53,10 @@ public class GravityDisplayCube : MonoBehaviour {
 	void gravOff(){
 		gravityIsOn = false;
 	}
-	void gravUpDown(){
-		gravityIsDown = !gravityIsDown;
+	void gravDown(){
+		gravityIsDown = true;
+	}
+	void gravUp(){
+		gravityIsDown = false;
 	}
 }
