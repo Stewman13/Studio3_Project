@@ -118,18 +118,16 @@ public class ModifyGravity : MonoBehaviour {
 		//Tablet Controls
 		if (TabletBuild == true) {
 			//flips gravity when tablet is flipped
-			if (Input.GetButtonDown ("GravitySwap")) {
-				if (gravNorm == false) {
-					gravNorm = !gravNorm;
+			if (Input.deviceOrientation == DeviceOrientation.LandscapeLeft) {
 					gravity = setGravity;
 					grav2.Play ();
 					gravDisplay.SendMessage ("gravUpDown");
-				} else if (gravNorm == true) {
-					gravNorm = !gravNorm;
+			}
+
+			if (Input.deviceOrientation == DeviceOrientation.LandscapeRight) {
 					gravity = -setGravity;
 					grav2.Play ();
 					gravDisplay.SendMessage ("gravUpDown");
-				}
 			}
 			
 			//adds grav down when button/finger held down
