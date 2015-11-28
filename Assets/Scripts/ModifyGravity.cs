@@ -87,14 +87,14 @@ public class ModifyGravity : MonoBehaviour {
 						this.GetComponent<ModifyWind> ().flip = false;
 						grav2.Play ();
 						flipping = true;
-						gravDisplay.SendMessage ("gravUpDown");
+						gravDisplay.SendMessage ("gravDown");
 					} else if (gravNorm == true) {
 						gravNorm = !gravNorm;
 						gravity = -setGravity;
 						this.GetComponent<ModifyWind> ().flip = true;
 						grav2.Play ();
 						flipping = true;
-						gravDisplay.SendMessage ("gravUpDown");
+						gravDisplay.SendMessage ("gravUp");
 					}
 				}
 			}
@@ -111,12 +111,12 @@ public class ModifyGravity : MonoBehaviour {
 						}
 						grav1.Play ();
 						gravityOn = !gravityOn;
-						gravDisplay.SendMessage ("gravOnOff");
+						gravDisplay.SendMessage ("gravOn");
 					}
 				} else if (gravityOn == true) {
 					grav3.Play ();
 					gravityOn = !gravityOn;
-					gravDisplay.SendMessage ("gravOnOff");
+					gravDisplay.SendMessage ("gravOff");
 				}
 			}
 		}
