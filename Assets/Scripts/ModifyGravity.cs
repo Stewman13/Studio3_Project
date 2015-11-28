@@ -25,6 +25,7 @@ public class ModifyGravity : MonoBehaviour {
     public AudioSource grav1;
     public AudioSource grav2;
     public AudioSource grav3;
+	public int messages = 0;
 
 	public bool TabletBuild = false;
 
@@ -143,12 +144,20 @@ public class ModifyGravity : MonoBehaviour {
 				}
 				grav1.Play ();
 				gravityOn = true;
-				gravDisplay.SendMessage ("gravOn");
+				if(messages == 0){
+					Debug.Log("gravOn");
+					gravDisplay.SendMessage ("gravOn");
+					messages++;
+				}
 			}
 
 			if (turnGravOn == false) {
 				gravityOn = false;
-				gravDisplay.SendMessage ("gravOff");
+				if(messages == 1){
+					Debug.Log("gravOff");
+					gravDisplay.SendMessage ("gravOff");
+					messages--;
+				}
 			}
 		}
 	}
