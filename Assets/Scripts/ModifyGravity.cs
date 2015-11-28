@@ -35,6 +35,8 @@ public class ModifyGravity : MonoBehaviour {
 		if (TabletBuild) {
 			gravityOn = false;
 			setGravity = 4.0f;
+			rb.angularDrag = 1;
+			rb.drag = 1;
 		}
     }
 
