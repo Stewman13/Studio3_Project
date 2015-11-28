@@ -17,6 +17,7 @@ public class ModifyGravity : MonoBehaviour {
     public float currentTime = 0f;
     public float timeToMove = 0f;
 
+	public bool turnGravOn = false;
     public bool gravityOn = true;
     public bool flipping = false;
 	public bool gravNorm = true;
@@ -131,7 +132,7 @@ public class ModifyGravity : MonoBehaviour {
 			}
 			
 			//adds grav down when button/finger held down
-			if (Input.GetButtonDown ("GravityOn")) {
+			if (turnGravOn == true) {
 				if (gravNorm == false) {
 					gravity = -setGravity;
 				}
@@ -139,13 +140,13 @@ public class ModifyGravity : MonoBehaviour {
 					gravity = setGravity;
 				}
 				grav1.Play ();
-				gravityOn = !gravityOn;
-				gravDisplay.SendMessage ("gravOnOff");
+				gravityOn = true;
+				gravDisplay.SendMessage ("gravOn");
 			}
 
-			if (Input.GetButtonUp ("GravityOn")) {
-				gravityOn = !gravityOn;
-				gravDisplay.SendMessage ("gravOnOff");
+			if (turnGravOn == false) {
+				gravityOn = false;
+				gravDisplay.SendMessage ("gravOff");
 			}
 		}
 	}

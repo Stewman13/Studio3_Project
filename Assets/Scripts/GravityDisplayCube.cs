@@ -47,8 +47,11 @@ public class GravityDisplayCube : MonoBehaviour {
 		transform.position = displayPos+new Vector3(0.0f,currentOffset,0.0f);
 	}
 
-	void gravOnOff(){
-		gravityIsOn = !gravityIsOn;
+	void gravOn(){
+		gravityIsOn = true;
+	}
+	void gravOff(){
+		gravityIsOn = false;
 	}
 	void gravUpDown(){
 		gravityIsDown = !gravityIsDown;
