@@ -30,6 +30,6 @@ public class ReturnToMenu : MonoBehaviour {
 	}
 
 	void Quit(){
-		Application.LoadLevel (0);
+		Application.LoadLevel (1);
 	}
 }

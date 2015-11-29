@@ -52,7 +52,11 @@ public class PressurePlate : MonoBehaviour {
 			lightI.color = Color.red;
 			powerDown = true;
 		}
+
         dist = Vector3.Distance(plate.transform.position, transform.position);
+
+		if (Timescale.Paused)
+			return;
 
         if(dist < 1)
         {
