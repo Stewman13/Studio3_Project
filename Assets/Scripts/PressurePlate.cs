@@ -8,6 +8,7 @@ public class PressurePlate : MonoBehaviour {
     public Rigidbody rb;
     public float dist;
     public bool active;
+	public float timer;
 
     public float setGravity = 0.5f;
     public int timesToPlay = 1;
@@ -85,19 +86,24 @@ public class PressurePlate : MonoBehaviour {
 				if(continuous == false){
                 	timesToPlay = 0;
 				}
-                LightBulb.GetComponent<Renderer>().material.color = new Color32(0,255,0,60);
 				if(hasTimer == true){
-	                lightI.color = Color.green;
-					if(receiver != null){
-						receiver.SendMessage(message);
+					timer += Time.deltaTime;
+					if(timer > 3){
+	                	lightI.color = Color.green;
+						LightBulb.GetComponent<Renderer>().material.color = new Color32(0,255,0,60);
+						tick.Play();
+						if(receiver != null){
+							receiver.SendMessage(message);
+						}
+	                	if(spawner == true)
+	                	{
+	                    	Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
+	                	}
 					}
-	                if(spawner == true)
-	                {
-	                    Instantiate(cube, spawnPoint.position, spawnPoint.rotation);
-	                }
 				}
 				else if(hasTimer == false){
 					lightI.color = Color.green;
+					LightBulb.GetComponent<Renderer>().material.color = new Color32(0,255,0,60);
 					if(receiver != null){
 						receiver.SendMessage(message);
 					}
@@ -111,6 +117,7 @@ public class PressurePlate : MonoBehaviour {
         else
         {
             active = false;
+
             if(timesToPlay == 0)
             {
 				if(receiver != null && hasUpMessage == true){
