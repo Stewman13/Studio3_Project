@@ -75,6 +75,8 @@ public class BreathTimer : MonoBehaviour {
 		yield return new WaitForSeconds(11.0f);
 		fading = true;
 		yield return new WaitForSeconds(3.0f);
-		Application.LoadLevel (Application.loadedLevel + 1);
+		AsyncOperation async = Application.LoadLevelAsync(Application.loadedLevel+1);
+		yield return async;
+		Debug.Log("Loading complete");
 	}
 }
