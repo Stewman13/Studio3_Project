@@ -1,0 +1,411 @@
+fileFormatVersion: 2
+guid: 0fd21678280ad9c47aa2d32baf438c5d
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: spinner_square
+    21300002: spinner_square_thin
+    21300004: square
+    21300006: stopwatch_arrow
+    21300008: stopwatch
+    21300010: sword
+    21300012: dot
+    21300014: triangle
+    21300016: circle_half
+    21300018: circle_half_fading
+    21300020: circle_half_fading_2
+    21300022: circle_half_fading_3
+    21300024: circle_half_fading_4
+    21300026: circle_half_fading_thick
+    21300028: circle_half_fading_thick_2
+    21300030: circle_half_opacity
+    21300032: circle
+    21300034: circle_open
+    21300036: circle_quarter
+    21300038: circle_quarter_2
+    21300040: circle_quarter_2_opacity
+    21300042: circle_quarter_3
+    21300044: circle_quarter_opacity
+    21300046: cog
+    21300048: cog_inside
+    21300050: pickaxe
+    21300052: rectangle
+    21300054: rock
+    21300056: spinner_circle
+    21300058: spinner
+    21300060: spinner_rounded_corners
+    21300062: spinner_rounded_corners_thin
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  spriteSheet:
+    sprites:
+    - name: spinner_square
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1706.66663
+        width: 341.333344
+        height: 341.333374
+      alignment: 0
+      pivot: {x: .5, y: .499999821}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spinner_square_thin
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 1707
+        width: 340
+        height: 341
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: square
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 1706.66663
+        width: 341.333374
+        height: 341.333374
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: stopwatch_arrow
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 1709
+        width: 334
+        height: 336
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: stopwatch
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 1706.66663
+        width: 341.333374
+        height: 341.333374
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sword
+      rect:
+        serializedVersion: 2
+        x: 1705
+        y: 1706.66663
+        width: 341.333374
+        height: 341.333374
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dot
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1365.66663
+        width: 341.333344
+        height: 341.333374
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: triangle
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 1366
+        width: 339
+        height: 339
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: circle_half
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 1368
+        width: 337
+        height: 336
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: circle_half_fading
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 1365.66663
+        width: 341.333374
+        height: 341.333374
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: circle_half_fading_2
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 1365.66663
+        width: 341.333374
+        height: 341.333374
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: circle_half_fading_3
+      rect:
+        serializedVersion: 2
+        x: 1705
+        y: 1365.66663
+        width: 341.333374
+        height: 341.333374
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: circle_half_fading_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024.66663
+        width: 341.333344
+        height: 341.333374
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: circle_half_fading_thick
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 1024.66663
+        width: 341.333374
+        height: 341.333374
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: circle_half_fading_thick_2
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 1024.66663
+        width: 341.333374
+        height: 341.333374
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: circle_half_opacity
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 1026
+        width: 337
+        height: 338
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: circle
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 1024.66663
+        width: 341.333374
+        height: 341.333374
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: circle_open
+      rect:
+        serializedVersion: 2
+        x: 1705
+        y: 1024.66663
+        width: 341.333374
+        height: 341.333374
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: circle_quarter
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 683.666626
+        width: 341.333344
+        height: 341.333374
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: circle_quarter_2
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 683.666626
+        width: 341.333374
+        height: 341.333374
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: circle_quarter_2_opacity
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 683.666626
+        width: 341.333374
+        height: 341.333374
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: circle_quarter_3
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 683.666626
+        width: 341.333374
+        height: 341.333374
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: circle_quarter_opacity
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 683.666626
+        width: 341.333374
+        height: 341.333374
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cog
+      rect:
+        serializedVersion: 2
+        x: 1708
+        y: 685
+        width: 338
+        height: 337
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cog_inside
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 341
+        width: 341
+        height: 342
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 1, y: 0, z: 0, w: 0}
+    - name: pickaxe
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 342.666656
+        width: 341.333374
+        height: 341.333344
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rectangle
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 342.666656
+        width: 341.333374
+        height: 341.333344
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rock
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 342.666656
+        width: 341.333374
+        height: 341.333344
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spinner_circle
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 342.666656
+        width: 341.333374
+        height: 341.333344
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spinner
+      rect:
+        serializedVersion: 2
+        x: 1705
+        y: 343
+        width: 341
+        height: 338
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spinner_rounded_corners
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.66665649
+        width: 341.333344
+        height: 341.333344
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spinner_rounded_corners_thin
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 1.66665649
+        width: 341.333374
+        height: 341.333344
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

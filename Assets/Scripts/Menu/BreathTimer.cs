@@ -8,6 +8,8 @@ public class BreathTimer : MonoBehaviour {
 	public Color lerpedColor;
 	public Color endColor;
 	public bool fading = false;
+	AsyncOperation async;
+	public GameObject load;
 
 //	[System.Serializable]
 //	public class TimedCard
@@ -66,7 +68,14 @@ public class BreathTimer : MonoBehaviour {
 		yield return new WaitForSeconds(11.0f);
 		txtRef.text = "3";
 		Debug.Log ("Is Running 3");
+		Debug.LogWarning("ASYNC LOAD STARTED - " +
+		                 "DO NOT EXIT PLAY MODE UNTIL SCENE LOADS... UNITY WILL CRASH");
+		async = Application.LoadLevelAsync(Application.loadedLevel+1);
+		async.allowSceneActivation = false;
+		//yield return async;
+		load.SetActive (true);
 		yield return new WaitForSeconds(11.0f);
+		load.SetActive (false);
 		txtRef.text = "4";
 		Debug.Log ("Is Running 4");
 		yield return new WaitForSeconds(11.0f);
@@ -75,8 +84,9 @@ public class BreathTimer : MonoBehaviour {
 		yield return new WaitForSeconds(11.0f);
 		fading = true;
 		yield return new WaitForSeconds(3.0f);
-		AsyncOperation async = Application.LoadLevelAsync(Application.loadedLevel+1);
-		yield return async;
-		Debug.Log("Loading complete");
+		async.allowSceneActivation = true;
+//		AsyncOperation async = Application.LoadLevelAsync(Application.loadedLevel+1);
+//		yield return async;
+//		Debug.Log("Loading complete");
 	}
 }
